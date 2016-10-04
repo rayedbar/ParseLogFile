@@ -11,7 +11,7 @@ public class LogEntry {
     private int mServerTime;
 
     public LogEntry(int mHour, int mGETRequest, int mPOSTRequest, int mServerTime) {
-        this.mHour = m;
+        this.mHour = mHour;
         this.mGETRequest = mGETRequest;
         this.mPOSTRequest = mPOSTRequest;
         this.mServerTime = mServerTime;

@@ -34,6 +34,7 @@ public class Parser {
                     int postRequest = getPOSTRequest(line);
                     int serverTime = getServerTime(line);
                     LogEntry entry = new LogEntry(hour, getRequest, postRequest, serverTime);
+                    entries.add(entry);
                     flag = true;
                 }
             }
@@ -50,21 +51,38 @@ public class Parser {
     }
 
     private int getServerTime(String line) {
-        return 0;
+        String regex = "\\d+ms";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(line);
+        int time = 0;
+        if (matcher.find()){
+            String s = matcher.group();
+            String si = s.replace("ms", "");
+            time = Integer.parseInt(si.trim());
+        }
+        return time;
     }
 
     private int getPOSTRequest(String line) {
+        String regex = "\\sP,\\s";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(line);
+        if (m.find()){
+            //String s = m.group().trim();
+            return 1;
+        }
         return 0;
     }
 
     private int getGETRequest(String line) {
-        String regex = "\\sG";
+        String regex = "\\sG,\\s";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(line);
         if (m.find()){
-            String s = m.group().trim();
-            return
+            //String s = m.group().trim();
+            return 1;
         }
+        return 0;
     }
 
     private int getHour(String line) {

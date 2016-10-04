@@ -23,4 +23,12 @@ public class Control {
         System.out.println("Enter uri:");
         uri = sc.nextLine().trim();
     }
+
+    public void showResults() {
+
+    }
+
+    public void sort() {
+
+    }
 }
