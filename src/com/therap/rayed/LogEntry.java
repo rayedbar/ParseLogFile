@@ -1,8 +1,10 @@
 package com.therap.rayed;
 
 /**
- * Created by rayed on 10/4/16.
+ * Created by Rayed Bin Wahed on 10/4/16.
+ * Parse Log File
  */
+
 public class LogEntry {
 
     private int mHour;
@@ -17,9 +19,7 @@ public class LogEntry {
         this.mServerTime = mServerTime;
     }
 
-    public int getmHour() {
-        return mHour;
-    }
+    public int getmHour() { return mHour; }
 
     public void setmHour(int mHour) {
         this.mHour = mHour;
